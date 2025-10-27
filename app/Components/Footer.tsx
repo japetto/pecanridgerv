@@ -40,7 +40,7 @@ export default function Footer() {
           {/* Navigation Links */}
           <nav className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 sm:gap-y-3 text-sm sm:text-base font-medium w-full md:w-auto">
             <Link
-              href="/auth/signin"
+              href="https://rentalportal01.netlify.app/auth/signin"
               className="text-slate-100 hover:text-emerald-300 transition-colors whitespace-nowrap"
             >
               Resident Portal

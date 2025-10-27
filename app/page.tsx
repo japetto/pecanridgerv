@@ -532,7 +532,10 @@ export default function PecanRidgePage() {
           </div>
 
           <div className="text-center mt-12 sm:mt-16 px-4 sm:px-0">
-            <Link href="/auth/signin" className="inline-block w-full sm:w-auto">
+            <Link
+              href="https://rentalportal01.netlify.app/auth/signin"
+              className="inline-block w-full sm:w-auto"
+            >
               <Button
                 size="lg"
                 className="bg-gradient-to-r w-full sm:w-auto sm:min-w-[300px] from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white shadow-2xl text-base sm:text-lg py-6 sm:py-8 h-auto font-bold group transition-transform duration-300 hover:scale-105 rounded-2xl"

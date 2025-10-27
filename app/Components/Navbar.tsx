@@ -50,7 +50,7 @@ export default function Navbar() {
           </Link>
 
           <div className="flex gap-3">
-            <Link href="/auth/signin">
+            <Link href="https://rentalportal01.netlify.app/auth/signin">
               <Button
                 variant="outline"
                 className="border-slate-300 hover:bg-slate-50 hidden sm:inline-flex rounded-lg"
