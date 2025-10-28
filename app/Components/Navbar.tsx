@@ -29,8 +29,10 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div
-          className={`flex justify-between items-center h-20 ${
-            isScrolled ? "h-20" : "h-32"
+          className={`flex justify-between items-center transition-all duration-300 ${
+            isScrolled
+              ? "h-16 sm:h-18 md:h-20 lg:h-20"
+              : "h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36"
           }`}
         >
           <Link href="/pecan-ridge" className="flex items-center gap-3">
@@ -44,7 +46,11 @@ export default function Navbar() {
                 alt="Pecan Ridge"
                 width={isScrolled ? 120 : 200}
                 height={isScrolled ? 120 : 200}
-                className="transition-all duration-300"
+                className={`transition-all duration-300 ${
+                  isScrolled
+                    ? "w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+                    : "w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-52 xl:h-52"
+                }`}
               />
             </div>
           </Link>
