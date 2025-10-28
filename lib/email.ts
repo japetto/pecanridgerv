@@ -1,31 +1,71 @@
-"use server";
+import Mailjet from "node-mailjet";
 
-interface EmailData {
+// Email configuration
+const config = {
+  mailjet_api_key: process.env.MAILJET_API_KEY || "",
+  mailjet_secret_key: process.env.MAILJET_SECRET_KEY || "",
+  mailjet_sender_email:
+    process.env.MAILJET_SENDER_EMAIL || "noreply@example.com",
+};
+
+// Initialize Mailjet client
+const mailjet = Mailjet.apiConnect(
+  config.mailjet_api_key,
+  config.mailjet_secret_key
+);
+
+export interface IEmailOptions {
   to: string;
-  name: string;
   subject: string;
   html: string;
+  name?: string;
 }
 
-export async function sendEmail({ to, name, subject, html }: EmailData) {
-  // For now, we'll just log the email data
-  // In production, you would integrate with an email service like:
-  // - SendGrid
-  // - Resend
-  // - AWS SES
-  // - Nodemailer with SMTP
+// Send email function using Mailjet v3.1 API
+export const sendEmail = async (emailOptions: IEmailOptions): Promise<void> => {
+  try {
+    const request = mailjet.post("send", { version: "v3.1" }).request({
+      Messages: [
+        {
+          From: {
+            Email: config.mailjet_sender_email,
+            Name: "Pecan Ridge RV Park",
+          },
+          To: [
+            {
+              Email: emailOptions.to,
+              Name: emailOptions.name || "",
+            },
+          ],
+          Subject: emailOptions.subject,
+          HTMLPart: emailOptions.html,
+        },
+      ],
+    });
 
-  console.log("Email would be sent:", {
-    to,
-    name,
-    subject,
-    html: html.substring(0, 100) + "...", // Truncate for logging
-  });
+    await request;
+  } catch (error) {
+    // Provide more specific error messages
+    if (error instanceof Error) {
+      if (error.message.includes("Unauthorized")) {
+        throw new Error(
+          "Mailjet authentication failed. Please check your API key and secret."
+        );
+      } else if (error.message.includes("Bad Request")) {
+        throw new Error(
+          "Invalid email request. Please check the email format and content."
+        );
+      } else if (error.message.includes("Forbidden")) {
+        throw new Error(
+          "Mailjet access denied. Please check your account permissions."
+        );
+      }
+    }
 
-  // Simulate email sending delay
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  // For development, we'll always return success
-  // In production, handle actual email sending and errors
-  return { success: true };
-}
+    throw new Error(
+      `Failed to send email: ${
+        error instanceof Error ? error.message : "Unknown error"
+      }`
+    );
+  }
+};

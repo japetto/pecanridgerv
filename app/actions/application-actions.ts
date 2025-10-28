@@ -6,8 +6,8 @@ import {
   generateApplicantConfirmationEmailHTML,
 } from "@/lib/email-templates";
 import {
+  ApplicationFormData,
   applicationFormSchema,
-  type ApplicationFormData,
 } from "@/zod/application.validation";
 
 interface SubmitApplicationResponse {
@@ -57,7 +57,7 @@ export async function submitApplication(
 
     // Send notification email to admin
     try {
-      const adminEmail = process.env.ADMIN_EMAIL || "iveypursuits@gmail.com";
+      const adminEmail = process.env.ADMIN_EMAIL || "learnweb.rony@gmail.com";
 
       await sendEmail({
         to: adminEmail,

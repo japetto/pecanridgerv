@@ -89,8 +89,6 @@ export default function ApplicationModal({
         throw new Error(result.error || "Failed to submit application");
       }
 
-      console.log("Form submitted successfully:", result.message);
-
       setIsSubmitting(false);
       setIsSubmitted(true);
 
