@@ -63,8 +63,7 @@ export default function PecanRidgePage() {
     {
       icon: Car,
       title: "Easy Access",
-      description:
-        "Convenient pull-through sites with paved roads and ample parking",
+      description: "Conveniently located along Hwy 53 (Cottonwood Rd)",
       color: "from-slate-500 to-gray-500",
     },
     {
@@ -692,7 +691,7 @@ export default function PecanRidgePage() {
                     </h3>
                     <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
                       From shopping and dining to healthcare and entertainment,
-                      you're never far from what you need. Experience the
+                      you&apos;re never far from what you need. Experience the
                       perfect balance of peaceful living and convenient access
                       to city amenities.
                     </p>
