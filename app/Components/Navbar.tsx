@@ -35,7 +35,7 @@ export default function Navbar() {
               : "h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36"
           }`}
         >
-          <Link href="/pecan-ridge" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="flex items-center gap-3">
               <Image
                 src={
