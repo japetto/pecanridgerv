@@ -48,7 +48,7 @@ export default function PecanRidgePage() {
       icon: Droplets,
       title: "Laundry Facilities",
       description:
-        "On-site laundry room with modern washers and dryers available 24/7 for residents",
+        "On-site laundry room with washers and dryers available 24/7 for residents",
       color: "from-cyan-500 to-blue-500",
     },
     {
