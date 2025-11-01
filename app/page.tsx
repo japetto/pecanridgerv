@@ -9,7 +9,6 @@ import {
   ArrowRight,
   Bell,
   Car,
-  CheckCircle2,
   ChevronRight,
   CreditCard,
   Droplets,
@@ -18,7 +17,6 @@ import {
   MapPin,
   Phone,
   Shield,
-  Sparkles,
   TreePine,
   Wifi,
   Wrench,
@@ -48,9 +46,9 @@ export default function PecanRidgePage() {
     },
     {
       icon: Droplets,
-      title: "Showers Facilities",
+      title: "Laundry Facilities",
       description:
-        "Clean, modern shower facilities available 24/7 for all residents",
+        "On-site laundry room with modern washers and dryers available 24/7 for residents",
       color: "from-cyan-500 to-blue-500",
     },
     {
@@ -103,76 +101,6 @@ export default function PecanRidgePage() {
       description:
         "Access your lease agreements, receipts, and important documents anytime from your secure resident portal.",
       gradient: "from-blue-500 via-indigo-500 to-purple-500",
-    },
-  ];
-
-  const howItWorks = [
-    {
-      step: "01",
-      title: "Apply Online",
-      description:
-        "Fill out our simple online application. We'll review it within 24 hours and get back to you.",
-      icon: FileText,
-    },
-    {
-      step: "02",
-      title: "Get Approved",
-      description:
-        "Once approved, receive your welcome package and portal login credentials via email.",
-      icon: CheckCircle2,
-    },
-    {
-      step: "03",
-      title: "Move In",
-      description:
-        "Schedule your move-in date, sign your lease digitally, and we'll prepare your spot.",
-      icon: Home,
-    },
-    {
-      step: "04",
-      title: "Enjoy Living",
-      description:
-        "Access your resident portal to pay rent, submit requests, and enjoy park life hassle-free.",
-      icon: Sparkles,
-    },
-  ];
-
-  const gallery = [
-    {
-      url: "https://images.unsplash.com/photo-1525811902-f2342640856e?q=80&w=2400&auto=format&fit=crop",
-      alt: "Luxury RV campsite with mountain views",
-      title: "Premium Sites",
-      description: "Spacious lots with stunning natural surroundings",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2400&auto=format&fit=crop",
-      alt: "Family camping under majestic trees",
-      title: "Nature Living",
-      description: "Peaceful environment for your perfect retreat",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2400&auto=format&fit=crop",
-      alt: "Modern RV park with full amenities",
-      title: "Full Service",
-      description: "Everything you need at your fingertips",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1714761127637-cc51b5cbf7b6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1469",
-      alt: "Sunset camping with friends",
-      title: "Community",
-      description: "Make lasting memories with neighbors",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2400&auto=format&fit=crop",
-      alt: "Lakeside RV camping at golden hour",
-      title: "Scenic Views",
-      description: "Wake up to breathtaking landscapes",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1487730116645-74489c95b41b?q=80&w=2400&auto=format&fit=crop",
-      alt: "Modern RV interior with family",
-      title: "Comfort",
-      description: "Your home away from home",
     },
   ];
 
@@ -361,82 +289,6 @@ export default function PecanRidgePage() {
           </div>
         </div>
       </section>
-
-      {/* At a Glance - Key Info Section */}
-      {/* <section className="py-20 bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-700 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">
-                A Community Feel
-              </h2>
-              <p className="text-xl text-white/90">
-                Long-term tenants go through a quick and easy screening process
-                for everyone&apos;s peace of mind
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border-2 border-white/20">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                  <PawPrint className="text-white size-6" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Pet Friendly
-                </h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  Up to 2 pets welcome. No size restrictions. No additional pet
-                  fees.
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border-2 border-white/20">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                  <CreditCard className="text-white size-6" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  What&apos;s Included
-                </h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  Electric, water, sewer, WiFi, cable TV, trash service, and all
-                  amenities.
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border-2 border-white/20">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                  <Shield className="text-white size-6" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Background Check
-                </h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  All tenants pass a background check. This keeps everybody safe
-                  and provides peace of mind.
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border-2 border-white/20">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                  <Calendar className="text-white size-6" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Minimum Stay
-                </h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  1 month minimum for monthly plans. Flexible move-in dates
-                  available.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Features Section */}
       <section id="features" className="py-16 sm:py-20 md:py-24 bg-white">
