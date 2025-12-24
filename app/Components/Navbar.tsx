@@ -61,7 +61,7 @@ export default function Navbar() {
                 variant="outline"
                 className="border-slate-300 hover:bg-slate-50 hidden sm:inline-flex rounded-lg"
               >
-                Resident Login
+                Portal Login
               </Button>
             </Link>
             <ApplicationModal variant="compact" />
