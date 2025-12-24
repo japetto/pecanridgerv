@@ -67,12 +67,14 @@ export default function ApplicationModal({
       rvLength: undefined,
       rvMake: "",
       rvModel: "",
-      rvType: "",
+      rvType: undefined,
       numOccupants: undefined,
       hasPets: "",
       petDetails: "",
       moveInDate: undefined,
       stayDuration: "",
+      reasonForMoving: "",
+      sourceOfIncome: "",
       additionalNotes: "",
       hearAboutUs: "",
     },
@@ -354,36 +356,61 @@ export default function ApplicationModal({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>RV Type *</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select RV type" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="motorhome-a">
-                            Class A Motorhome
-                          </SelectItem>
-                          <SelectItem value="motorhome-b">
-                            Class B Motorhome
-                          </SelectItem>
-                          <SelectItem value="motorhome-c">
-                            Class C Motorhome
-                          </SelectItem>
-                          <SelectItem value="fifth-wheel">
-                            Fifth Wheel
-                          </SelectItem>
-                          <SelectItem value="travel-trailer">
-                            Travel Trailer
-                          </SelectItem>
-                          <SelectItem value="toy-hauler">Toy Hauler</SelectItem>
-                          <SelectItem value="tiny-house">Tiny House</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <FormControl>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                          {[
+                            { value: "motorhome", label: "Motorhome" },
+                            {
+                              value: "travel-trailer",
+                              label: "Travel Trailer",
+                            },
+                            { value: "fifth-wheel", label: "Fifth Wheel" },
+                            { value: "tiny-home", label: "Tiny Home" },
+                          ].map((option) => (
+                            <button
+                              key={option.value}
+                              type="button"
+                              onClick={() => field.onChange(option.value)}
+                              className={cn(
+                                "relative flex items-center justify-center p-2.5 sm:p-3 rounded-lg border transition-all duration-200",
+                                "hover:shadow-sm hover:scale-[1.01] active:scale-[0.99]",
+                                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-1",
+                                field.value === option.value
+                                  ? "border-emerald-500 bg-gradient-to-br from-emerald-50 to-teal-50 shadow-sm"
+                                  : "border-slate-200 bg-white hover:border-emerald-300"
+                              )}
+                            >
+                              <span
+                                className={cn(
+                                  "font-medium text-sm sm:text-base text-center",
+                                  field.value === option.value
+                                    ? "text-emerald-700"
+                                    : "text-slate-700"
+                                )}
+                              >
+                                {option.label}
+                              </span>
+                              {field.value === option.value && (
+                                <div className="absolute top-1.5 right-1.5">
+                                  <div className="w-4 h-4 bg-emerald-500 rounded-full flex items-center justify-center">
+                                    <svg
+                                      className="w-2.5 h-2.5 text-white"
+                                      fill="none"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="3"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                  </div>
+                                </div>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -565,6 +592,48 @@ export default function ApplicationModal({
 
                 <FormField
                   control={form.control}
+                  name="reasonForMoving"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Reason for Moving *</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Please tell us why you're looking to move to our RV park..."
+                          rows={3}
+                          className="resize-none"
+                          {...field}
+                        />
+                      </FormControl>
+                      <p className="text-sm text-slate-500">
+                        Help us understand your situation and needs.
+                      </p>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="sourceOfIncome"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Source of Income *</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="e.g., Employment, Retirement, Self-Employed, etc."
+                          {...field}
+                        />
+                      </FormControl>
+                      <p className="text-sm text-slate-500">
+                        This information helps us process your application.
+                      </p>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
                   name="additionalNotes"
                   render={({ field }) => (
                     <FormItem>
@@ -573,6 +642,7 @@ export default function ApplicationModal({
                         <Textarea
                           placeholder="Tell us anything else we should know..."
                           rows={4}
+                          className="resize-none"
                           {...field}
                         />
                       </FormControl>

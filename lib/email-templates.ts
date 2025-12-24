@@ -17,6 +17,8 @@ export const generateAdminNotificationEmailHTML = (applicationData: {
   petDetails?: string;
   moveInDate: Date;
   stayDuration: string;
+  reasonForMoving: string;
+  sourceOfIncome: string;
   additionalNotes?: string;
   hearAboutUs?: string;
 }): string => {
@@ -240,6 +242,18 @@ export const generateAdminNotificationEmailHTML = (applicationData: {
           <span class="info-value">${applicationData.stayDuration
             .replace("-", " ")
             .replace(/\b\w/g, (l) => l.toUpperCase())}</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>💼 Financial & Moving Information</h3>
+        <div class="info-row">
+          <span class="info-label">Reason for Moving:</span>
+          <span class="info-value">${applicationData.reasonForMoving}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Source of Income:</span>
+          <span class="info-value">${applicationData.sourceOfIncome}</span>
         </div>
       </div>
 

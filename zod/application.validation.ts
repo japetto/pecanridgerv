@@ -36,7 +36,12 @@ export const applicationFormSchema = z.object({
     .string()
     .min(1, "RV model is required")
     .max(50, "RV model is too long"),
-  rvType: z.string().min(1, "Please select an RV type"),
+  rvType: z.enum(
+    ["motorhome", "travel-trailer", "fifth-wheel", "tiny-home"] as const,
+    {
+      message: "Please select an RV type",
+    }
+  ),
 
   // Occupancy & Pets
   numOccupants: z
@@ -53,6 +58,14 @@ export const applicationFormSchema = z.object({
   stayDuration: z.string().min(1, "Please select your planned stay duration"),
 
   // Additional Information
+  reasonForMoving: z
+    .string()
+    .min(1, "Reason for moving is required")
+    .max(500, "Reason for moving must be less than 500 characters"),
+  sourceOfIncome: z
+    .string()
+    .min(1, "Source of income is required")
+    .max(200, "Source of income must be less than 200 characters"),
   additionalNotes: z.string().optional(),
   hearAboutUs: z.string().optional(),
 });
