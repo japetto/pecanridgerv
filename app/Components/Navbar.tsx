@@ -59,7 +59,7 @@ export default function Navbar() {
             <Link href="https://rentalportal01.netlify.app/auth/signin">
               <Button
                 variant="outline"
-                className="border-slate-300 hover:bg-slate-50 hidden sm:inline-flex rounded-lg"
+                className="border-slate-300 hover:bg-slate-50 inline-flex rounded-lg"
               >
                 Portal Login
               </Button>
