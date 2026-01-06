@@ -263,11 +263,11 @@ export default function ApplicationModal({
                 />
               </div>
 
-              {/* RV Information */}
+              {/*  Information */}
               <div className="space-y-6 bg-white rounded-xl p-6 shadow-sm border border-slate-100">
                 <h3 className="text-xl font-bold text-slate-900 pb-3 border-b-2 border-emerald-500 flex items-center gap-2">
                   <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                  RV Information
+                  Information
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -276,7 +276,7 @@ export default function ApplicationModal({
                     name="rvYear"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>RV Year *</FormLabel>
+                        <FormLabel>Year *</FormLabel>
                         <FormControl>
                           <Input
                             type="number"
@@ -300,7 +300,7 @@ export default function ApplicationModal({
                     name="rvLength"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>RV Length (feet) *</FormLabel>
+                        <FormLabel>Length (feet) *</FormLabel>
                         <FormControl>
                           <Input
                             type="number"
@@ -327,7 +327,7 @@ export default function ApplicationModal({
                     name="rvMake"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>RV Make *</FormLabel>
+                        <FormLabel>Make *</FormLabel>
                         <FormControl>
                           <Input placeholder="Winnebago" {...field} />
                         </FormControl>
@@ -340,7 +340,7 @@ export default function ApplicationModal({
                     name="rvModel"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>RV Model *</FormLabel>
+                        <FormLabel>Model *</FormLabel>
                         <FormControl>
                           <Input placeholder="Minnie Winnie" {...field} />
                         </FormControl>
@@ -355,7 +355,7 @@ export default function ApplicationModal({
                   name="rvType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>RV Type *</FormLabel>
+                      <FormLabel>Type *</FormLabel>
                       <FormControl>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                           {[
