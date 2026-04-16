@@ -114,7 +114,7 @@ export default function PecanRidgePage() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
-            src="/PecanRidge/Pecan-ridge-park-entrance.png"
+            src="/PecanRidge/Pecanridgeparkentrance.png"
             alt="Stunning RV Park nestled in nature"
             fill
             className="object-cover scale-105 animate-[scale_20s_ease-in-out_infinite]"
