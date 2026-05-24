@@ -113,6 +113,15 @@ export default function PecanRidgePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
+          {/* 
+            Why Image may not show in production but works locally:
+            1. The public path is case-sensitive on Vercel/Unix (but usually not on Windows/local). 
+               Check: is the folder "PecanRidge" and file "Pecanridgeparkentrance.png" exactly that spelling and casing in /public?
+            2. Make sure the file is actually in your /public folder before build and deployment.
+            3. If using Next.js "Image", check your next.config.js for domains and allowed image locations. 
+            4. In production, pathing errors and missing files are silent: the image just won't render.
+          */}
+
           <Image
             src="/PecanRidge/Pecanridgeparkentrance.png"
             alt="Stunning RV Park nestled in nature"
@@ -120,6 +129,7 @@ export default function PecanRidgePage() {
             className="object-cover scale-105 animate-[scale_20s_ease-in-out_infinite]"
             priority
           />
+
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-emerald-900/50 to-slate-900/70"></div>
 
           {/* Floating gradient orbs */}
@@ -384,7 +394,7 @@ export default function PecanRidgePage() {
 
           <div className="text-center mt-12 sm:mt-16 px-4 sm:px-0">
             <Link
-              href="https://rentalportal01.netlify.app/auth/signin"
+              href="https://pecanridgerv.rentalportal.app/signin"
               className="inline-block w-full sm:w-auto"
             >
               <Button
